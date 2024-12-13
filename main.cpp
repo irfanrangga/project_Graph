@@ -1,9 +1,17 @@
-#include <iostream>
-
-using namespace std;
+#include "Graph_Header.h"
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    Map G;
+    buildMap(G);
+
+    adrKota v = firstKota(G);
+    cout << endl;
+    while(v != nullptr){
+        cout << idKota(v) << " " << endl;
+        v = nextKota(v);
+    }
+
+    cout << endl;
     return 0;
 }
