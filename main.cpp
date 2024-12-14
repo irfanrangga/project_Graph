@@ -8,13 +8,13 @@ int main() {
 
     buildMap(G);
 
+     cout << "= = = = = = = = = = = NNZ MAP = = = = = = = = = = =" << endl;
     cout << "\nPeta Koneksi Antar Kota: " << endl;
     printMap(G);
 
 
+    cout << "= = = = = = = = = = = MENGHITUNG DERAJAT SIMPUL = = = = = = = = = = =" << endl;
     string kotaID;
-
-    // Test indegree, outdegree, and degree for different cities
     cout << "Masukkan nama kota untuk uji indegree, outdegree, dan degree: ";
     cin >> kotaID;
 
