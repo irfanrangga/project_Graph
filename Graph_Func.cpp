@@ -191,6 +191,23 @@ int degree(Map G, string kotaID) {
     return indegree(G, kotaID) + outdegree(G, kotaID);
 }
 
+int costPerKilometer(Map G, string kotaID, int price){
+    int totalCost = 0;
+    adrDest p = findDest(G, kotaID);
+    totalCost = weight(p) * price;
+    return totalCost;
+}
+
+void findCheapestFare(Map G){
+    int routeFare = 0;
+    adrKota p = firstKota(G);
+    while(p != NULL){
+        //ini belom
+    }
+    adrDest q = firstDest(p);
+
+}
+
 //int calculateRoute(Map G) {
 //    adrKota
 //}

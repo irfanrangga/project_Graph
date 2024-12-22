@@ -44,8 +44,8 @@ void printMap(Map &G);
 int indegree(Map G, string kotaID);
 int outdegree(Map G, string kotaID);
 int degree(Map G, string kotaID);
-int costPerKilometer(Map G, int price);
+int costPerKilometer(Map G, string kotaID, int price);
 //void findFastestRoute(Map G);
-//void findCheapestFare(Map G);
+void findCheapestFare(Map G);
 //int caculateRoute(Map G);
 #endif

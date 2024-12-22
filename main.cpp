@@ -2,6 +2,7 @@
 
 int main() {
     Map G;
+    int harga;
     string tujuanAkhir = "Budapest";
 
     buildMap(G);
@@ -18,6 +19,7 @@ int main() {
     cin >> destID;
     cout << findKota(G, kotaID) << endl;
     cout << findDest(G, destID) << endl;
+
 
 /*
     int indeg = indegree(G, kotaID);
