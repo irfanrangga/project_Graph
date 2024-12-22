@@ -4,20 +4,22 @@ int main() {
     Map G;
     string tujuanAkhir = "Budapest";
 
-    initMap(G);
-
     buildMap(G);
 
-     cout << "= = = = = = = = = = = NNZ MAP = = = = = = = = = = =" << endl;
+    cout << "= = = = = = = = = = = Graph Test = = = = = = = = = = =" << endl;
     cout << "\nPeta Koneksi Antar Kota: " << endl;
     printMap(G);
 
-
-    cout << "= = = = = = = = = = = MENGHITUNG DERAJAT SIMPUL = = = = = = = = = = =" << endl;
-    string kotaID;
-    cout << "Masukkan nama kota untuk uji indegree, outdegree, dan degree: ";
+    cout << "\n= = = = = = = = = = = Cari Kota = = = = = = = = = = =" << endl;
+    string kotaID, destID;
+    cout << "Masukkan nama kota asal: ";
     cin >> kotaID;
+    cout << "Masukkan nama kota tujuan: ";
+    cin >> destID;
+    cout << findKota(G, kotaID) << endl;
+    cout << findDest(G, destID) << endl;
 
+/*
     int indeg = indegree(G, kotaID);
     int outdeg = outdegree(G, kotaID);
     int deg = degree(G, kotaID);
@@ -25,6 +27,6 @@ int main() {
     cout << "Indegree kota " << kotaID << " = " << indeg << endl;
     cout << "Outdegree kota " << kotaID << " = " << outdeg << endl;
     cout << "Degree kota " << kotaID << " = " << deg << endl;
-
+*/
     return 0;
 }

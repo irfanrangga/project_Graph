@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1734094203 source:d:\dev\tubes_std\main.cpp
+1734836751 source:d:\dev\tubes_std\main.cpp
 	"Graph_Header.h"
 
-1734099809 d:\dev\tubes_std\graph_header.h
+1734821640 d:\dev\tubes_std\graph_header.h
 	<iostream>
 
-1734094153 source:d:\dev\tubes_std\graph_func.cpp
+1734836389 source:d:\dev\tubes_std\graph_func.cpp
 	"Graph_Header.h"
 
 1734174241 source:d:\my file\new folder\graph_func.cpp
