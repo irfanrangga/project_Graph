@@ -12,15 +12,15 @@ int main() {
     printMap(G);
 
     cout << "\n= = = = = = = = = = = Cari Kota = = = = = = = = = = =" << endl;
-    string kotaID, destID;
+    string kotaID, destID, cariHarga;
     cout << "Masukkan nama kota asal: ";
     cin >> kotaID;
     cout << "Masukkan nama kota tujuan: ";
     cin >> destID;
     cout << findKota(G, kotaID) << endl;
     cout << findDest(G, destID) << endl;
-
-
+    cout << calculateRoutebyRange(G) << endl;
+    cout << calculateRoutebyCost(G) << endl;
 /*
     int indeg = indegree(G, kotaID);
     int outdeg = outdegree(G, kotaID);

@@ -51,6 +51,7 @@ adrDest findDest(Map G, string destID){
                 p = nextDest(p);
             }
         }
+        pKota = nextKota(pKota);
     }
     return NULL;
 }
@@ -69,7 +70,6 @@ void addKota(Map &G, string kotaID) {
         nextKota(q) = v;
     }
 }
-
 
 void addDest(Map &G, string sourceKotaID, string destKotaID, int weight) {
     adrKota sourceKota = firstKota(G);
@@ -125,12 +125,11 @@ void buildMap(Map &G) {
     cout << "Masukkan jumlah rute: ";
     cin >> jumlahRute;
 
-    cout << "Masukkan kota asal: ";
-    cin >> startKota;
-    addKota(G, startKota);
-
     for (int i = 1; i <= jumlahRute; i++) {
         cout << "\nRute " << i << endl;
+        cout << "Masukkan kota asal: ";
+        cin >> startKota;
+        addKota(G, startKota);
         inputDest(G, startKota, kotaTujuan);
     }
 }
@@ -191,9 +190,8 @@ int degree(Map G, string kotaID) {
     return indegree(G, kotaID) + outdegree(G, kotaID);
 }
 
-int costPerKilometer(Map G, string kotaID, int price){
+int costPerKilometer(Map G, adrDest p, int price){
     int totalCost = 0;
-    adrDest p = findDest(G, kotaID);
     totalCost = weight(p) * price;
     return totalCost;
 }
@@ -202,12 +200,41 @@ void findCheapestFare(Map G){
     int routeFare = 0;
     adrKota p = firstKota(G);
     while(p != NULL){
-        //ini belom
+        //in blms
     }
     adrDest q = firstDest(p);
 
 }
 
-//int calculateRoute(Map G) {
-//    adrKota
-//}
+int calculateRoutebyRange(Map G) {
+    string kotaID;
+    int totalJarak = 0;
+    cout << "Masukkan kota asal: ";
+    cin >> kotaID;
+    adrKota p = findKota(G, kotaID);
+    adrDest q = firstDest(p);
+
+    while(p != NULL && q != NULL){
+        totalJarak += weight(q);
+        q = nextDest(q);
+    }
+    return totalJarak;
+}
+
+int calculateRoutebyCost(Map G){
+    string kotaAsal;
+    int totalBiaya = 0;
+    cout << "Masukkan kota asal: ";
+    cin >> kotaAsal;
+    adrKota p = findKota(G, kotaAsal);
+    adrDest q = firstDest(p);
+    while(p != NULL && q != NULL){
+        int harga, hargaTemp;
+        cout << "Masukkan biaya perjalanan pada kota " << infoDest(q) << ": ";
+        cin >> harga;
+        hargaTemp = costPerKilometer(G, q, harga);
+        totalBiaya += hargaTemp;
+        q = nextDest(q);
+    }
+    return totalBiaya;
+}

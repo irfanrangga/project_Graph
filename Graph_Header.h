@@ -1,6 +1,7 @@
 #ifndef GRAPH_H_INCLUDED
 #define GRAPH_H_INCLUDED
 #include <iostream>
+#include <stdio.h>
 #define firstKota(G) G.firstKota
 #define infoKota(v) v->infoKota
 #define nextKota(v) v->nextKota
@@ -45,7 +46,8 @@ int indegree(Map G, string kotaID);
 int outdegree(Map G, string kotaID);
 int degree(Map G, string kotaID);
 int costPerKilometer(Map G, string kotaID, int price);
+int calculateRoutebyCost(Map G);
+int calculateRoutebyRange(Map G);
 //void findFastestRoute(Map G);
-void findCheapestFare(Map G);
-//int caculateRoute(Map G);
+//void findCheapestFare(Map G);
 #endif
