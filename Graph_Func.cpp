@@ -205,9 +205,9 @@ void findCheapestFare(Map G) {
     cout << "     Pencarian Rute Termurah       " << endl;
     cout << "==========================================" << endl;
     while(p != NULL) {
-        cout << " Mengevaluasi rute ke-" << idxRute << "..." << endl;
+        cout << "Mengevaluasi rute ke-" << idxRute << "..." << endl;
         int tempPrice = calculateRoutebyCost(G, infoKota(p));
-        cout << " Total biaya rute: " << tempPrice << " euro" << endl;
+        cout << "Total biaya rute: " << tempPrice << " euro" << endl;
 
         if(cheapestRoute == -1 || tempPrice < cheapestRoute) {
             cheapestRoute = tempPrice;
@@ -218,9 +218,9 @@ void findCheapestFare(Map G) {
         p = nextKota(p);
     }
     cout << "==========================================" << endl;
-    cout << " Rute termurah ditemukan! " << endl;
-    cout << " Rute ke-" << i << endl;
-    cout << " Total biaya: " << cheapestRoute << " euro" << endl;
+    cout << "Rute termurah ditemukan! " << endl;
+    cout << "Rute ke-" << i << endl;
+    cout << "Total biaya: " << cheapestRoute << " euro" << endl;
     cout << "==========================================" << endl;
 }
 
