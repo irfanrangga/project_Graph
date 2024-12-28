@@ -10,13 +10,14 @@
 1735356386 source:d:\dev\tubes_std\graph_func.cpp
 	"Graph_Header.h"
 
-1734174241 source:d:\my file\new folder\graph_func.cpp
+1735356586 source:d:\my file\new folder\graph_func.cpp
 	"Graph_Header.h"
-	<iostream>
 
-1734175716 d:\my file\new folder\graph_header.h
+1735356586 d:\my file\new folder\graph_header.h
 	<iostream>
+	<stdio.h>
 
-1734175716 source:d:\my file\new folder\main.cpp
+1735356586 source:d:\my file\new folder\main.cpp
 	"Graph_Header.h"
+	<cstdlib>
 
