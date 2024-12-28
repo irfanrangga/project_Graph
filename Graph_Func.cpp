@@ -196,45 +196,77 @@ int costPerKilometer(Map G, adrDest p, int price){
     return totalCost;
 }
 
-void findCheapestFare(Map G){
-    int routeFare = 0;
+void findCheapestFare(Map G) {
+    int i = 1, idxRute = 1;
     adrKota p = firstKota(G);
+    int cheapestRoute = -1;
     while(p != NULL){
-        //in blms
+        cout << "Masukkan biaya perjalanan pada rute ke-" << idxRute << endl;
+        int tempPrice = calculateRoutebyCost(G, infoKota(p));
+        if(cheapestRoute == -1 || tempPrice < cheapestRoute){
+            cheapestRoute = tempPrice;
+            i++;
+        }
+        cout << endl;
+        idxRute++;
+        p = nextKota(p);
     }
-    adrDest q = firstDest(p);
-
+    cout << "Rute Termurah berada di rute ke-" << i << " dengan total biaya " << cheapestRoute << " euro" << endl;
 }
 
-int calculateRoutebyRange(Map G) {
-    string kotaID;
+void findFastestRoute(Map G) {
+    int fastRoute = 9999, i = 1;
+    adrKota p = firstKota(G);
+
+    while(p != NULL){
+        int tempFast = calculateRoutebyDistance(G, infoKota(p));
+        if(tempFast < fastRoute){
+            fastRoute = tempFast;
+            i++;
+        }
+        p = nextKota(p);
+    }
+
+    cout << "Rute tercepat berada di rute ke-" << i << " dengan total jarak " << fastRoute << " Km" << endl;
+}
+
+int calculateRoutebyDistance(Map G, string kotaID) {
     int totalJarak = 0;
-    cout << "Masukkan kota asal: ";
-    cin >> kotaID;
+
     adrKota p = findKota(G, kotaID);
     adrDest q = firstDest(p);
 
-    while(p != NULL && q != NULL){
+    while(q != NULL){
         totalJarak += weight(q);
         q = nextDest(q);
     }
     return totalJarak;
 }
 
-int calculateRoutebyCost(Map G){
-    string kotaAsal;
+int calculateRoutebyCost(Map G, string kotaAsal) {
     int totalBiaya = 0;
-    cout << "Masukkan kota asal: ";
-    cin >> kotaAsal;
+
     adrKota p = findKota(G, kotaAsal);
     adrDest q = firstDest(p);
     while(p != NULL && q != NULL){
         int harga, hargaTemp;
-        cout << "Masukkan biaya perjalanan pada kota " << infoDest(q) << ": ";
+        cout << "Masukkan biaya perjalanan menuju kota " << infoDest(q) << ": ";
         cin >> harga;
         hargaTemp = costPerKilometer(G, q, harga);
         totalBiaya += hargaTemp;
         q = nextDest(q);
     }
     return totalBiaya;
+}
+
+void showMenu(){
+    cout << "===== PILIH LAYANAN XXMAP =====" << endl;
+    cout << "1. Buat Rute" << endl;
+    cout << "2. Cari Kota Asal" << endl;
+    cout << "3. Cari Kota Tujuan" << endl;
+    cout << "4. Cari Rute Termurah" << endl;
+    cout << "5. Cari Rute Tercepat" << endl;
+    cout << "6. Tampilkan Semua Rute" << endl;
+    cout << "9. Exit" << endl;
+    cout << "Pilih Menu: ";
 }
