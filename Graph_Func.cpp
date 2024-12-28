@@ -260,7 +260,7 @@ int calculateRoutebyCost(Map G, string kotaAsal) {
 }
 
 void showMenu(){
-    cout << "===== PILIH LAYANAN XXMAP =====" << endl;
+    cout << "===== PILIH LAYANAN =====" << endl;
     cout << "1. Buat Rute" << endl;
     cout << "2. Cari Kota Asal" << endl;
     cout << "3. Cari Kota Tujuan" << endl;

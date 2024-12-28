@@ -41,14 +41,18 @@ int main() {
             }
             break;
         case 4:
-            cout << endl;
+            system("cls");
             cout << "===== CARI RUTE TERMURAH =====" << endl;
+            printMap(G);
+            cout << endl;
             findCheapestFare(G);
             cout << endl;
             break;
         case 5:
-            cout << endl;
+            system("cls");
             cout << "===== CARI RUTE TERCEPAT =====" << endl;
+            printMap(G);
+            cout << endl;
             findFastestRoute(G);
             cout << endl;
             break;
