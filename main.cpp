@@ -1,30 +1,71 @@
 #include "Graph_Header.h"
+#include <cstdlib>
 
 int main() {
     Map G;
-    string tujuanAkhir = "Budapest";
+    int harga, opsi;
+    string kotaAsal, kotaTujuan;
+    opsi = 0;
 
-    initMap(G);
+    while(opsi != 9){
+        showMenu();
+        cin >> opsi;
+        switch(opsi){
+        case 1:
+            system("cls");
+            cout << "===== MENU BUAT RUTE =====" << endl;
+            buildMap(G);
+            cout << "Berhasil membuat rute!" << endl;
+            cout << endl;
+            break;
+        case 2:
+            system("cls");
+            cout << "===== CARI KOTA ASAL =====" << endl;
+            cout << "Masukkan nama kota asal yang ingin dicari: ";
+            cin >> kotaAsal;
+            if(findKota(G, kotaAsal) == NULL){
+                cout << "Kota " << kotaAsal << " tidak ditemukan pada kota asal" << endl;
+            } else {
+                cout << "Kota " << kotaAsal << " ditemukan pada alamat: " << findKota(G, kotaAsal) << endl;
+            }
+            break;
+        case 3:
+            system("cls");
+            cout << "===== CARI KOTA TUJUAN =====" << endl;
+            cout << "Masukkan nama kota tujuan yang ingin dicari: ";
+            cin >> kotaTujuan;
+            if(findDest(G, kotaTujuan) == NULL){
+                cout << "Kota " << kotaTujuan << " tidak ditemukan pada kota tujuan" << endl;
+            } else {
+                cout << "Kota " << kotaTujuan << " ditemukan pada alamat: " << findDest(G, kotaTujuan) << endl;
+            }
+            break;
+        case 4:
+            system("cls");
+            cout << "===== CARI RUTE TERMURAH =====" << endl;
+            printMap(G);
+            cout << endl;
+            findCheapestFare(G);
+            cout << endl;
+            break;
+        case 5:
+            system("cls");
+            cout << "===== CARI RUTE TERCEPAT =====" << endl;
+            printMap(G);
+            cout << endl;
+            findFastestRoute(G);
+            cout << endl;
+            break;
 
-    buildMap(G);
-
-     cout << "= = = = = = = = = = = NNZ MAP = = = = = = = = = = =" << endl;
-    cout << "\nPeta Koneksi Antar Kota: " << endl;
-    printMap(G);
-
-
-    cout << "= = = = = = = = = = = MENGHITUNG DERAJAT SIMPUL = = = = = = = = = = =" << endl;
-    string kotaID;
-    cout << "Masukkan nama kota untuk uji indegree, outdegree, dan degree: ";
-    cin >> kotaID;
-
-    int indeg = indegree(G, kotaID);
-    int outdeg = outdegree(G, kotaID);
-    int deg = degree(G, kotaID);
-
-    cout << "Indegree kota " << kotaID << " = " << indeg << endl;
-    cout << "Outdegree kota " << kotaID << " = " << outdeg << endl;
-    cout << "Degree kota " << kotaID << " = " << deg << endl;
+        case 6:
+            system("cls");
+            cout << "========== RUTE YANG TERSEDIA ==========" << endl;
+            printMap(G);
+            cout << endl;
+            break;
+        }
+    }
+    cout << "Selamat Tinggal!" << endl;
 
     return 0;
 }
