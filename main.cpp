@@ -43,29 +43,36 @@ int main() {
         case 4:
             system("cls");
             cout << "===== CARI RUTE TERMURAH =====" << endl;
-            printMap(G);
-            cout << endl;
-            findCheapestFare(G);
+            printMap(G, "Paris", "Budapest");
+            cout << "Masukkan kota asal: ";
+            cin >> kotaAsal;
+            cout << "Masukkan kota tujuan: ";
+            cin >> kotaTujuan;
+            findCheapestFare(G, kotaAsal, kotaTujuan);
             cout << endl;
             break;
         case 5:
             system("cls");
             cout << "===== CARI RUTE TERCEPAT =====" << endl;
-            printMap(G);
+            printMap(G, "Paris", "Budapest");
             cout << endl;
-            findFastestRoute(G);
+            cout << "Masukkan kota asal: ";
+            cin >> kotaAsal;
+            cout << "Masukkan kota tujuan: ";
+            cin >> kotaTujuan;
+            findFastestRoute(G, kotaAsal, kotaTujuan);
             cout << endl;
             break;
-
         case 6:
             system("cls");
             cout << "========== RUTE YANG TERSEDIA ==========" << endl;
-            printMap(G);
+            printMap(G, "Paris", "Budapest");
             cout << endl;
             break;
         }
     }
     cout << "Selamat Tinggal!" << endl;
+    system("cls");
 
     return 0;
 }
